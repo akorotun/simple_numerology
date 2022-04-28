@@ -7,14 +7,14 @@
 @section('content')
 
 
-        <div class="jumbotron p-4 p-md-4 text-white rounded bg-secondary shadow1">
+        <div class="jumbotron p-4 p-md-4 text-white rounded bg1 shadow1">
             <div class="col-md-12 px-0">
                 @if(count($articles) > 0)
                     @foreach($articles as $el)
                         @if($el->id == 1)
                             <h1 class="display-4 font-italic">{{ $el->name }}</h1>
                             <p class="lead my-3">{{ $el->title }}</p>
-                            <p class="lead mb-0"><a href="/public/articles/{{ $el->id }}" class="text-white font-weight-bold">Читать дальше...</a></p>
+                            <p class="lead mb-0"><a href="/public/articles/{{ $el->id }}" class="text-white font-weight-bold">Читати далі...</a></p>
                         @endif
                     @endforeach
                 @endif
@@ -32,10 +32,13 @@
                                 <h3 class="mb-0">{{ $el->name }}</h3>
                                 <div class="mb-1 text-muted">{{ $el->created_at }}</div>
                                 <p class="card-text mb-auto">{{ $el->title }}</p>
-                                <a href="/public/articles/{{ $el->id }}" class="stretched-link">Читати далі</a>
+                                <a href="/public/articles/{{ $el->id }}" class="stretched-link">Читати далі...</a>
                     </div>
                     <div class="col-auto d-none d-lg-block">
-                        <svg class="bd-placeholder-img rounded" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+                        <img class="bd-placeholder-img rounded" width="200" height="250"
+                             src="/public/storage/images/{{ $el->image }}">
+
                     </div>
                 </div>
             </div>

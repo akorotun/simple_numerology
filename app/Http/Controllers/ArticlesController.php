@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; // добавил по примеру, потому что ругалось, что нет класса DB
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
+// добавил по примеру, потому что ругалось, что нет класса DB
 
 class ArticlesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except'=>['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -56,14 +65,42 @@ class ArticlesController extends Controller
         $this->validate($request,
             ['name' => 'required|max:190|min:5',
                 'title' => 'required|max:190|min:10',
-                'text' => 'required|min:10'
+                'text' => 'required|min:10',
+                'main_image' => 'nullable|image|max:1999',
+                'category' => 'required'
             ]);
+
+        if ($request->hasFile('main_image')) {
+            //проверим - есть ли файл при создании новой статьи, если есть, то сделаем имя уникальным (имя+время)
+            //берем полное название файла:
+            $file = $request->file('main_image')->getClientOriginalName();
+
+            //получим название без расширения:
+            $image_name_without_ext = pathinfo($file, PATHINFO_FILENAME);
+
+            //получим отдельно только расширение файла:
+            $ext = $request->file('main_image')->getClientOriginalExtension();
+
+            //получим уникальное имя файла = имя + время + расширение:
+            $image_name = $image_name_without_ext . "_" . time() . "." . $ext;
+
+            //добавим загружаемую картинку в проект
+            //storeAs загружает данные в storage/app/public/images (создаст папку images)
+            //но єта папка не видна пользователю, необходимо сделать перелинковку - php artisan storage:link
+            $path = $request->file('main_image')->storeAs('public/images', $image_name);
+
+        } else
+            $image_name = 'noimage.jpg';
 
         $article = new Article();
         $article->name = $request->input('name');
         $article->title = $request->input('title');
         $article->text = $request->input('text');
         $article->user_id = auth()->user()->id;
+        $article->image = $image_name;
+        $article->category = $request->input('category');
+
+
         $article->save();
         return redirect('/articles')->with('success', 'Нова стаття додана');
 
@@ -99,6 +136,9 @@ class ArticlesController extends Controller
             'article'=>Article::find($id),
             'articles_group'=>Article::getPublishedMonthes()
             ];
+        if (auth()->user()->id != $data['article']->user_id)
+            return redirect('/articles')->with('error', "Ви не можете редагувати цю статтю");
+
         return view('articles.edit')->with($data);
     }
 
@@ -115,13 +155,44 @@ class ArticlesController extends Controller
             [
                 'name' => 'required|max:190|min:5',
                 'title' => 'required|max:190|min:10',
-                'text' => 'required|min:10'
+                'text' => 'required|min:10',
+                'category' => 'required'
             ]);
+
+        if ($request->hasFile('main_image')) {
+            //проверим - есть ли файл при создании новой статьи, если есть, то сделаем имя уникальным (имя+время)
+            //берем полное название файла:
+            $file = $request->file('main_image')->getClientOriginalName();
+
+            //получим название без расширения:
+            $image_name_without_ext = pathinfo($file, PATHINFO_FILENAME);
+
+            //получим отдельно только расширение файла:
+            $ext = $request->file('main_image')->getClientOriginalExtension();
+
+            //получим уникальное имя файла = имя + время + расширение:
+            $image_name = $image_name_without_ext . "_" . time() . "." . $ext;
+
+            //добавим загружаемую картинку в проект
+            //storeAs загружает данные в storage/app/public/images (создаст папку images)
+            //но єта папка не видна пользователю, необходимо сделать перелинковку - php artisan storage:link
+            $path = $request->file('main_image')->storeAs('public/images', $image_name);
+        }
 
         $article = Article::find($id);
         $article->name = $request->input('name');
         $article->title = $request->input('title');
         $article->text = $request->input('text');
+
+        //если передаем новый файл, то меняем и новое имя картинки в статье
+        if ($request->hasFile('main_image')) {
+            //если будет новый файл, то удаляем старый, кроме noimage.jpg
+            if ($article->image != "noimage.jpg")
+                Storage::delete('public/images/'.$article->image);
+            $article->image = $image_name;
+        }
+
+
         $article->save();
         return redirect('/articles')->with('success', 'Стаття оновлена');
     }
@@ -135,6 +206,12 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         $article = Article::find($id);
+        if (auth()->user()->id != $article->user_id)
+            return redirect('/articles')->with('error', "Вы не можете видалити цю статтю");
+
+        if ($article->image != "noimage.jpg")
+            Storage::delete('public/images/'.$article->image);
+
         $article->delete();
         return redirect('/articles')->with('success', 'Стаття була видалена');
     }

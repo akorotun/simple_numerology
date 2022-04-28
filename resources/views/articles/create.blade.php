@@ -15,7 +15,15 @@
 
                         <div class="col p-4 d-flex flex-column position-static">
 
-                            {!! Form::open(['action' => 'ArticlesController@store', 'method' => 'POST']) !!}
+                            {!! Form::open(['action' => 'ArticlesController@store', 'method' => 'POST', 'enctype'=>'multipart/form-data']) !!}
+                                <div class="form-group mb-3">
+                                    {{ Form::label('category', 'Категорія статті', ['class'=>'col-lg-2 p-0']) }}
+                                    {{ Form::select('category', [
+                                '' => '',
+                                'Проста нумерологія' => 'Проста нумерологія'],
+                            '') }}
+                                </div>
+
                                 <div class="form-group mb-3">
                                     {{ Form::label('name', 'Назва статті') }}
                                     {{ Form::text('name', '',
@@ -35,6 +43,11 @@
                                     {{ Form::textarea('text', '',
                                         ['id'=>'editor',
                                         'placeholder'=>'Введіть текст статті']) }}
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    {{ Form::file('main_image') }}
+                                    <br><i>Примітка: пропорція файла 20/25</i>
                                 </div>
 
                                 {{ Form::submit('Додати', ['class'=>'btn btn-success']) }}

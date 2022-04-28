@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\DB;
  * @property string $name
  * @property string $title
  * @property string $text
+ * @property string $image
  * @property int $user_id
+ * @property string $category
  */
 
 class Article extends Model
