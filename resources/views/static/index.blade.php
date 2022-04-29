@@ -21,7 +21,7 @@
             </div>
         </div>
         <h3 class="pl-2 mb-2 font-italic">
-            Останні статті:
+            Останні статті з Простої нумерології
         </h3>
         <div class="row mb-2">
             @if(count($articles_last) > 0)
@@ -52,28 +52,23 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8 blog-main">
-                <h4 class="pb-2 mb-2 font-italic">
-                    Если Вы действительно заинтересовались,
-                </h4>
-                <p class="border-bottom">на нашем сайте можно воспользоваться простым калькулятором для расчета (своих чисел - вставить текст другой).</p>
+                <h5 class="pb-2 mb-2 font-italic">
+                    Якщо ви дійсно зацікавились,
+                </h5>
+                <p class="border-bottom">на нашому сайті можна скористуватись <a class="p-1" href="/public/numerology_calc">нумерологічним онлайн калькулятором.</a></p>
 
 
 
                 <div>
-                    <h4 class="pb-2 mb-2 font-italic">Для этого необходимо знать следующие данные:</h4>
-                    <p>From Tokyo to Mexico, to Rio. Yeah, you take me to utopia. I'm walking on air. We'd make out in your Mustang to Radiohead. I mean the ones, I mean like she's the one. Sun-kissed skin so hot we'll melt your popsicle. Slow cooking pancakes for my boy, still up, still fresh as a Daisy.</p>
+                    <h5 class="pb-2 mb-2 font-italic">За допомогою нашого нумерологічного онлайн калькулятора, ви зможете розрахувати:</h5>
                     <ul>
-                        <li>...</li>
-                        <li>...</li>
-                        <li>...</li>
+                        <li>Число долі.<p class="font-italic">Число долі - найбільш важливий показник, що видобувається з дати народження.</p></li>
+                        <li>Число душі.<p class="font-italic">Число душі - .</p></li>
+                        <li>Число імені.<p class="font-italic">Число імені - .</p></li>
+                        <li>Та зробити для себе Нумерологічний прогноз.<p class="font-italic">Зробивши розрахунки за певним роком, ви дізнаєтеся, які події він може принести у ваше життя.</p></li>
                     </ul>
-                    <p>Don't need apologies. Boy, you're an alien your touch so foreign, it's <em>supernatural</em>, extraterrestrial. Talk about our future like we had a clue. I can feel a phoenix inside of me.</p>
                 </div><!-- /.blog-post -->
 
-                <nav class="blog-pagination">
-                    <a class="btn btn-outline-primary" href="#">Older</a>
-                    <a class="btn btn-outline-secondary disabled">Newer</a>
-                </nav>
 
             </div><!-- /.blog-main -->
 

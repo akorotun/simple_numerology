@@ -32,17 +32,18 @@
 
 </head>
 <body>
-<div class="container mt-2 bg-light rounded border shadow1">
-    <header class="blog-header py-3">
+<div class="container mt-2 bg-light rounded border shadow1 bg1">
+    <header class="py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4">
-                <a class="text-muted mr-2" href="/public">Головна</a>
-                <a class="text-muted mr-2" href="/public/articles">Всі статті</a>
-                <a class="text-muted mr-2" href="/public/about">Про нас</a>
-                <a class="text-muted mr-2" href="#">Контакти</a>
+                <!--text-muted-->
+                <a class="text-white-50 mr-2" href="/public">Головна</a>
+                <a class="text-white-50 mr-2" href="/public/articles">Всі статті</a>
+                <a class="text-white-50 mr-2" href="/public/about">Про нас</a>
+                <a class="text-white-50 mr-2" href="#">Контакти</a>
             </div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#"><h2><b>Simple Numerology</b> </h2></a>
+                <a class="blog-header-logo text-white" href="/public"><h2>Simple Numerology</h2></a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
 
@@ -51,14 +52,14 @@
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
-                            <a class="btn btn-sm btn-outline-secondary mr-2" href="{{ route('login') }}">{{ __('Авторизація') }}</a>
+                            <a class="btn btn-sm btn-outline-info mr-2" href="{{ route('login') }}">{{ __('Авторизація') }}</a>
                     @endif
 
                     @if (Route::has('register'))
-                            <a class="btn btn-sm btn-outline-secondary mr-2" href="{{ route('register') }}">{{ __('Реєстрація') }}</a>
+                            <a class="btn btn-sm btn-outline-info mr-2" href="{{ route('register') }}">{{ __('Реєстрація') }}</a>
                     @endif
                 @else
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="font-weight-bold btn btn-sm btn-outline-info dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
@@ -75,7 +76,7 @@
                                 @csrf
                             </form>
                         </div>
-                        <a class="btn btn-sm btn-outline-secondary" href="/public/articles/create">Додати статтю</a>
+                        <a class="btn btn-sm btn-outline-info ml-1" href="/public/articles/create">Додати статтю</a>
                 @endguest
 
             </div>
@@ -88,11 +89,11 @@
         <nav class="nav d-flex justify-content-between">
             <div class="text-muted">
                 <b>Статті: </b>
-            <a class="p-2 text-muted" href="#">Категорія 1</a>
-            <a class="p-2 text-muted" href="#">Категорія 2</a>
+            <a class="p-1 text-muted" href="#">Категорія 1</a>
+            <a class="p-1 text-muted" href="#">Категорія 2</a>
             </div>
             <div class="text-muted">
-                <a class="p-2 text-muted" href="/public/numerology_calc">
+                <a class="p-1 text-muted" href="/public/numerology_calc">
                     <b>Нумерологічний онлайн калькулятор</b>
                 </a>
             </div>

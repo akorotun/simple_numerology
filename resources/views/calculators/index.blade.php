@@ -217,7 +217,7 @@
                             '') }}
                     </div>
 
-                    {{ Form::submit('розрахувати', ['class'=>'btn btn-primary']) }}
+                    {{ Form::submit('розрахувати', ['class'=>'btn btn-info']) }}
                     {!! Form::close() !!}
 
 
@@ -434,7 +434,7 @@
                             '') }}
                     </div>
 
-                    {{ Form::submit('розрахувати', ['class'=>'btn btn-primary']) }}
+                    {{ Form::submit('розрахувати', ['class'=>'btn btn-info']) }}
                     {!! Form::close() !!}
 
 

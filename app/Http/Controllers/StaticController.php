@@ -13,7 +13,7 @@ class StaticController extends Controller
         $data = [
             'title' => 'Simple Numerology',
             'articles' => Article::all(),
-            'articles_last' => Article::orderBy('id', 'desc')->take(2)->get(),
+            'articles_last' => Article::orderBy('id', 'desc')->where('category', 'Проста нумерологія')->take(2)->get(),
             'articles_group'=>Article::getPublishedMonthes()//вызвали функцию для блока архив
         ];
         return view('static.index')->with($data);
