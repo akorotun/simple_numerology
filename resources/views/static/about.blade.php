@@ -16,7 +16,12 @@
                             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                             irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pa
                             riatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.</p>
+                            mollit anim id est laborum.
+                        </p><br>
+                        <p class="card-text mb-auto">
+                            Тема нумерології нам дуже цікава.
+                            Цей сайт ще знаходиться в процесі розробки, тож сподіваємось, що він буде розширятись та буде ще цікавішим.
+                        </p>
 
                     </div>
 

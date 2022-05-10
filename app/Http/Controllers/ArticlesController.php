@@ -151,6 +151,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd($request->get('text'));
         $this->validate($request,
             [
                 'name' => 'required|max:190|min:5',
@@ -183,6 +184,8 @@ class ArticlesController extends Controller
         $article->name = $request->input('name');
         $article->title = $request->input('title');
         $article->text = $request->input('text');
+        $article->category = $request->input('category');
+
 
         //если передаем новый файл, то меняем и новое имя картинки в статье
         if ($request->hasFile('main_image')) {

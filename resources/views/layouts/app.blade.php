@@ -40,7 +40,7 @@
                 <a class="text-white-50 mr-2" href="/public">Головна</a>
                 <a class="text-white-50 mr-2" href="/public/articles">Всі статті</a>
                 <a class="text-white-50 mr-2" href="/public/about">Про нас</a>
-                <a class="text-white-50 mr-2" href="#">Контакти</a>
+                <a class="text-white-50 mr-2" href="/public/contacts">Контакти</a>
             </div>
             <div class="col-4 text-center">
                 <a class="blog-header-logo text-white" href="/public"><h2>Simple Numerology</h2></a>
@@ -87,11 +87,7 @@
 <div class="container">
     <div class="nav-scroller mt-2 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <div class="text-muted">
-                <b>Статті: </b>
-            <a class="p-1 text-muted" href="#">Категорія 1</a>
-            <a class="p-1 text-muted" href="#">Категорія 2</a>
-            </div>
+
             <div class="text-muted">
                 <a class="p-1 text-muted" href="/public/numerology_calc">
                     <b>Нумерологічний онлайн калькулятор</b>
@@ -105,11 +101,12 @@
 @yield('content2')
 
 
-<footer class="footer mt-3 py-3">
-    <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-    </div>
+<footer class="blog-footer">
+    <p class="mb-1">&copy; 2022 Korotun A.</p>
+    <p>&#128386; korotun.it@gmail.com</p>
 </footer>
+
+<a target="_blank" href="https://bank.gov.ua/ua/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi" class="stop-war"></a>
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

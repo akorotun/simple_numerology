@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'StaticController@index');
 Route::get('about/', 'StaticController@about');
+//Route::get('contact/', 'StaticController@contact');
+//Route::get('send/', 'StaticController@send');
+
+
 Route::get('archive/articles/{year}/{month}', 'ArchiveArticlesController@index');
 Route::get('numerology_calc/', 'NumerologyCalculatorsController@index');
 Route::post('numerology_calc/fate_spirit', 'NumerologyCalculatorsController@fate_spirit');
@@ -23,6 +27,7 @@ Route::post('numerology_calc/forecast', 'NumerologyCalculatorsController@forecas
 
 
 Route::resource('articles', 'ArticlesController');
+Route::resource('contacts', 'ContactsController');
 
 Auth::routes();
 

@@ -24,11 +24,9 @@
 
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative bg-light shadow1">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <h4 class="card-text mb-3">Число душі: __.</h4>
-
-                    <p class="card-text mb-2"><b>Пояснення:_______.</b></p>
-
-
+                    <h4 class="card-text mb-3">Число душі: {{ $number_spirit }}. <i>(для перевірки номер з таблиці - {{ $number_spirit_detail->number }})</i></h4>
+                    <p class="card-text mb-2">{!! $number_spirit_detail->general  !!}</p>
+                    <img class="bd-placeholder-img rounded" width="250" height="200" src="/public/storage/images/{{ $number_spirit_detail->spirit_image }}">
                 </div>
             </div>
 

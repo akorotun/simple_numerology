@@ -14,7 +14,7 @@
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative shadow1">
 
                 <div class="col p-4 d-flex flex-column position-static">
-                    <h5 class="mb-3 p-0"><a href="/public/articles/4">Число долі</a> та <a href="/public/articles/статья про душу">душі</a>:</h5>
+                    <h5 class="mb-3 p-0"><a href="/public/articles/4">Число долі</a> та <a href="/public/articles/6">душі</a>:</h5>
 
                     {!! Form::open(['action' => 'NumerologyCalculatorsController@fate_spirit', 'method' => 'POST']) !!}
                     <div class="form-group mb-1">

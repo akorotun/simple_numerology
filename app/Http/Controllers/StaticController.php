@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+
+
 
 class StaticController extends Controller
 {
@@ -24,4 +27,21 @@ class StaticController extends Controller
         $data = ['title' => 'Про нас'];
         return view('static.about')->with($data);
     }
+
+//    public function contact()
+//    {
+//        $data = ['title' => 'Контакти'];
+//        return view('static.contact')->with($data);
+//    }
+
+//    public function send()
+//    {
+//        Mail::send(['text' => 'mail1'], ['name', 'web simple numerology'], function ($message){
+//            $message->to('simplenumerology1@gmail.com', 'To web simple numerology')->subject('Test mail');
+//            $message->from('simplenumerology1@gmail.com', 'web simple numerology');
+//        });
+//
+//    }
+
+
 }

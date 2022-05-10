@@ -13,11 +13,11 @@
 
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative bg-light shadow1">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <p class="mb-2 text-primary">Категорія: {{ $article->category }}</p>
+                    <p class="mb-2 text-muted">Категорія: {{ $article->category }}</p>
                     <h3 class="mb-0">{{ $article->name }}</h3>
                     <div class="mb-1 text-muted">{{ $article->created_at }}</div>
                     <p class="card-text mb-auto">{!! $article->text !!}</p>
-                    <p class="text-primary mb-auto">Автор: {{ $article->user->name }}</p>
+                    <p class="text-muted mb-auto">Автор: {{ $article->user->name }}</p>
                 </div>
             </div>
 

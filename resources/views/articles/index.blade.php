@@ -14,12 +14,11 @@
                 @foreach($articles as $el)
                     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative bg-light shadow1">
                         <div class="col p-4 d-flex flex-column position-static">
-                            <p class="mb-1 text-primary">Категорія: {{ $el->category }}</p>
-
+                            <p class="mb-1 text-muted">Категорія: {{ $el->category }}</p>
                             <h3 class="mb-0">{{ $el->name }}</h3>
                             <div class="mb-1 text-muted">{{ $el->created_at }}</div>
                             <p class="card-text mb-auto">{{ $el->title }}</p>
-                            <p class="d-inline-block mb-1 text-primary">Автор: {{ $el->user->name }}</p>
+                            <p class="d-inline-block mb-1 text-muted">Автор: {{ $el->user->name }}</p>
                             <a href="/public/articles/{{ $el->id }}" class="stretched-link">Читати далі...</a>
                         </div>
                         <div class="col-auto d-none d-lg-block align-self-center mr-1">

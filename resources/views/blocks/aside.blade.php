@@ -6,7 +6,7 @@
     </div>
 
     <div class="p-4">
-        <h4 class="font-italic">Архів-block</h4>
+        <h4 class="font-italic">Архів</h4>
         @if(count($articles_group) > 0)
             @foreach($articles_group as $el)
                 <ol class="list-unstyled mb-0">
