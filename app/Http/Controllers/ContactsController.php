@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except'=>['create']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,10 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        $data = ['title' => 'Контакти'];
+        $data = [
+            'title' => 'Вхідні повідомлення',
+            'contacts' => Contact::all()
+        ];
         return view('contacts.index')->with($data);
     }
 
@@ -24,7 +34,8 @@ class ContactsController extends Controller
      */
     public function create()
     {
-        //
+        $data = ['title' => 'Контакти'];
+        return view('contacts.create')->with($data);
     }
 
     /**
@@ -35,7 +46,20 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,
+            ['name' => 'required|max:190|min:5',
+                'email' => 'required|max:190|min:5',
+                'subject' => 'required|max:190|min:5',
+                'text' => 'required|min:10',
+            ]);
+
+        $contacts = new Contact();
+        $contacts->name = $request->input('name');
+        $contacts->email = $request->input('email');
+        $contacts->subject = $request->input('subject');
+        $contacts->text = $request->input('text');
+        $contacts->save();
+        return redirect('/contacts/create')->with('success', 'Повідомлення відправлено');
     }
 
     /**

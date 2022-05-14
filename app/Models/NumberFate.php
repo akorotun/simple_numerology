@@ -22,13 +22,8 @@ class NumberFate extends Model
 //        echo '<br>';
             $array_marge = array_merge($array_marge, array_reverse($array));
         }
-//        echo 'Массив с цифрами: <br>';
-//        print_r($array_marge);
-//        echo '<br>';
 
         $sum = array_sum($array_marge);
-//        echo 'сумма: ' . $sum;
-//        echo '<br>';
 
         $sum_01 = 0;
         $sum_02 = 0;
@@ -41,10 +36,7 @@ class NumberFate extends Model
             }
             $array_day_fate = array_reverse($array_2);
 //            print_r(array_reverse($array_2));
-//            echo '<br>';
             $sum = array_sum(array_reverse($array_2));
-//            echo "сумма: " . $sum;
-//            echo '<br>';
 
             if($array_2[0] + $array_2[1] < 9){
                 $sum_01 = array_reverse($array_2)[0];

@@ -31,7 +31,6 @@ class NumerologyCalculatorsController extends Controller
         $number_spirit = NumberSpirit::sum_number($day_b);//визвали функцію для підрахунку суми по дню народження
         $number_spirit_detail = NumberSpirit::where('number', $number_spirit)->first();
 
-
         $data = [
             'title'=>'Число долі та Душі',
             'number_fate' => $number_fate,
@@ -42,8 +41,6 @@ class NumerologyCalculatorsController extends Controller
             'number_fate_detail' => $number_fate_detail,
             'number_spirit_detail' => $number_spirit_detail
         ];
-//        var_dump($art);
-//        var_dump($number_fate_detail);
         return view('calculators.fate_spirit')->with($data);
     }
 

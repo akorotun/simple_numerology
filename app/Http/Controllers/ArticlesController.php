@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-// добавил по примеру, потому что ругалось, что нет класса DB
-
 class ArticlesController extends Controller
 {
 
@@ -25,13 +23,6 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-//        dd(
-//            Article::query()
-//                ->select(DB::raw("DATE_FORMAT(created_at, '%Y %M') AS month"))
-//                ->groupBy('month')
-//                ->orderByDesc('month')
-//                ->get()
-//        );
         $data = [
             'title'=>'Всі статті',
             'articles'=>Article::all(),
@@ -86,7 +77,7 @@ class ArticlesController extends Controller
 
             //добавим загружаемую картинку в проект
             //storeAs загружает данные в storage/app/public/images (создаст папку images)
-            //но єта папка не видна пользователю, необходимо сделать перелинковку - php artisan storage:link
+            //но эта папка не видна пользователю, необходимо сделать перелинковку - php artisan storage:link
             $path = $request->file('main_image')->storeAs('public/images', $image_name);
 
         } else
@@ -99,8 +90,6 @@ class ArticlesController extends Controller
         $article->user_id = auth()->user()->id;
         $article->image = $image_name;
         $article->category = $request->input('category');
-
-
         $article->save();
         return redirect('/articles')->with('success', 'Нова стаття додана');
 
@@ -176,7 +165,7 @@ class ArticlesController extends Controller
 
             //добавим загружаемую картинку в проект
             //storeAs загружает данные в storage/app/public/images (создаст папку images)
-            //но єта папка не видна пользователю, необходимо сделать перелинковку - php artisan storage:link
+            //но эта папка не видна пользователю, необходимо сделать перелинковку - php artisan storage:link
             $path = $request->file('main_image')->storeAs('public/images', $image_name);
         }
 
@@ -186,7 +175,6 @@ class ArticlesController extends Controller
         $article->text = $request->input('text');
         $article->category = $request->input('category');
 
-
         //если передаем новый файл, то меняем и новое имя картинки в статье
         if ($request->hasFile('main_image')) {
             //если будет новый файл, то удаляем старый, кроме noimage.jpg
@@ -194,7 +182,6 @@ class ArticlesController extends Controller
                 Storage::delete('public/images/'.$article->image);
             $article->image = $image_name;
         }
-
 
         $article->save();
         return redirect('/articles')->with('success', 'Стаття оновлена');

@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'StaticController@index');
 Route::get('about/', 'StaticController@about');
-//Route::get('contact/', 'StaticController@contact');
-//Route::get('send/', 'StaticController@send');
 
 
 Route::get('archive/articles/{year}/{month}', 'ArchiveArticlesController@index');

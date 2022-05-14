@@ -40,6 +40,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean'//определили типизацию, атрибут is_admin всегда будет преобразован в логическое значение при доступе к нему, даже если базовое значение хранится в базе данных как целое число
     ];
 
     public function articles() {

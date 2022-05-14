@@ -39,11 +39,5 @@
 
     </div>
 
-
-    <main role="main" class="container">
-
-
-    </main><!-- /.container -->
-
 @endsection
 

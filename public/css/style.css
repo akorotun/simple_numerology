@@ -25,13 +25,18 @@ body{
     border-top: 0.05rem solid #e5e5e5;
 }
 
+
 .stop-war {
     position: fixed;
     left: 0;
     top: 0;
     width: 90px;
     height: 90px;
-    background: url(/public//storage/images/stop-war-in-ukraine.png);
+    background: url(/public/storage/images/stop-war-in-ukraine.png);
     z-index: 10000;
     border: 0;
+}
+
+.blog-header-logo {
+    font-size: 2.0rem;
 }

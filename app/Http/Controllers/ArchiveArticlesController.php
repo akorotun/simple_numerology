@@ -9,12 +9,6 @@
     {
         public function index($year, $month)
         {
-//            dd(
-//                Article::query()
-//                    ->whereYear('created_at', $yy)
-//                    ->whereMonth('created_at', $mm)
-//                    ->get()
-//            );
             $data = [
             'title'=>"Архів $year.$month",
             'year'=>$year,

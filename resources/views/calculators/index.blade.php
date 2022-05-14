@@ -21,7 +21,6 @@
                         {{ Form::label('day_b', 'День народження',
                             ['class'=>'col-lg-5 p-0']) }}
                         {{ Form::select('day_b', [
-                                '' => '',
                                 '1' => 1,
                                 '2' => 2,
                                 '3' => 3,
@@ -61,7 +60,6 @@
                         {{ Form::label('month_b', 'Місяць народження',
                             ['class'=>'col-lg-5 p-0']) }}
                         {{ Form::select('month_b', [
-                                '' => '',
                                 '1' => 1,
                                 '2' => 2,
                                 '3' => 3,
@@ -82,7 +80,6 @@
                         {{ Form::label('year_b', 'Рік народження',
                             ['class'=>'col-lg-5 p-0']) }}
                         {{ Form::select('year_b', [
-                                '' => '',
                                 '1901' => 1901,
                                 '1902' => 1902,
                                 '1903' => 1903,
@@ -238,7 +235,6 @@
                         {{ Form::label('day_b', 'День народження',
                             ['class'=>'col-lg-5 p-0']) }}
                         {{ Form::select('day_b', [
-                                '' => '',
                                 '1' => 1,
                                 '2' => 2,
                                 '3' => 3,
@@ -278,7 +274,6 @@
                         {{ Form::label('month_b', 'Місяць народження',
                             ['class'=>'col-lg-5 p-0']) }}
                         {{ Form::select('month_b', [
-                                '' => '',
                                 '1' => 1,
                                 '2' => 2,
                                 '3' => 3,
@@ -299,7 +294,6 @@
                         {{ Form::label('year_forecast', 'Рік, який цікавить',
                             ['class'=>'col-lg-5 p-0']) }}
                         {{ Form::select('year_forecast', [
-                                '' => '',
                                 '1901' => 1901,
                                 '1902' => 1902,
                                 '1903' => 1903,
@@ -437,20 +431,11 @@
                     {{ Form::submit('розрахувати', ['class'=>'btn btn-info']) }}
                     {!! Form::close() !!}
 
-
                 </div>
             </div>
         </div>
 
-
-
     </div>
-
-
-    <main role="main" class="container">
-
-
-    </main><!-- /.container -->
 
 @endsection
 

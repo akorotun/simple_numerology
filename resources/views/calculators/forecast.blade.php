@@ -12,7 +12,7 @@
 
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative bg-light shadow1">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <h4 class="card-text mb-2">Рік числа: {{ $number_forecast }}. <i>(для перевірки номер з таблиці - {{ $number_forecast_detail->number }})</i></h4>
+                    <h4 class="card-text mb-2">Рік числа: {{ $number_forecast }}.<!-- <i>(для перевірки номер з таблиці - {{ $number_forecast_detail->number }})</i> --></h4>
 
                     <p class="card-text mb-2">{{ $number_forecast_detail->general }}</p>
                     <p class="card-text mb-2"><b>Здоров'я:</b> {{ $number_forecast_detail->health }}</p>
@@ -21,10 +21,7 @@
                 </div>
             </div>
 
-
         </div>
-
-
 
     </div>
 
